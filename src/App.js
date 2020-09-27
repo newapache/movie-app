@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// function App() {
+//   return (
+//     <div className="App">
+//         <h1>ddd</h1>
+//     </div>
+//   );
+// }
+
+class App extends React.Component {
+  state = {
+    isLoading: true,
+    movies: []
+  };
+  componentDidMount(){
+    setTimeout(() => {
+      this.setState({ isLoading: false });
+    }, 3000);
+  }
+  render(){
+    const { isLoading }  = this.state;
+    return <div>{ isLoading ? "isLoading is true" : "isLoading is false"}</div>
+  }
+
 }
 
 export default App;
